@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Portfólio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h2>Meu Portfólio</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Início</a></li>
+                <li><a href="#about" class="nav-link">Sobre</a></li>
+                <li><a href="#projects" class="nav-link">Projetos</a></li>
+                <li><a href="#contact" class="nav-link">Contato</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    Olá, eu sou Desenvolvedor
+                </h1>
+                <p class="hero-description">
+                    Estudante de Sistemas de Informação e desenvolvedor de aplicativos e jogos para dispositivos móveis. 
+					Entusiasta do universo dos games, e seu desenvolvimeto.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">Ver Projetos</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="floating-card">
+                    <i class="fas fa-code"></i>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sobre Mim</h2>
+                <p class="section-subtitle">Me chamo Matheus Pasini, conheça um pouco da minha trajetória</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Sou um desenvolvedor apaixonado por tecnologia, jogos e inovação, buscando aprimorar minhas habilidades de desenvolvimento de jogos. 
+						Minha jornada começou com curiosidade sobre como os sistemas de jogos são criados, 
+						e hoje transformo algumas de minhas ideias em realidade através do código.
+                    </p>
+                    <p>
+                        Alguma experiencia em:
+                    </p>
+                    <div class="skills">
+                        <div class="skill-item">
+                            <i class="fab fa-html5"></i>
+                            <span>HTML5</span>
+                        </div>
+						<div class="skill-item">
+                            <i class="fab fa-python"></i>
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="images/icon_godot.svg" alt="Godot" class="skill-icon">
+                            <span>Godot</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="fab fa-unity"></i>
+                            <span>Unity</span>
+                        </div>
+                        <div class="skill-item">
+                            <img src="images/icon_unreal.svg" alt="Unreal" class="skill-icon">
+                            <span>UnrealEngine</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Meus Projetos</h2>
+                <p class="section-subtitle">Alguns dos meus projetos</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-aos="fade-up">
+                    <div class="project-image">
+                        <img src="images/pixel_spider.png" alt="Pixel Spider">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://9rituals.itch.io/pixel-spider" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Pixel Spider</h3>
+                        <p class="project-description">
+                            Jogo casual com visuais 1-bit e pixel art, 
+							desenvolvido com a Godot Engine para dispositivos mobile e HTML5.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Godot</span>
+                            <span class="tech-tag">GdScript</span>
+                            <span class="tech-tag">Android</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image">
+                        <img src="images/magic_defender.png" alt="Magic Defender">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://9rituals.itch.io/magic-defender" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Magic Defender</h3>
+                        <p class="project-description">
+                            Jogo de "defender a base", um jogo experimental para testar 
+							algumas técnicas de particulas 2D, sistema de níveis e progressão.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Godot</span>
+                            <span class="tech-tag">GdScript</span>
+                            <span class="tech-tag">Android</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image">
+                        <img src="images/master_archer.png" alt="Master Archer">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://9rituals.itch.io/master-archer" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Master Archer</h3>
+                        <p class="project-description">
+                            Jogo mobile e Web, meu experimento para brincar com funções de física simulada.
+							Também é meu primeiro jogo finalizado com a Godot.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Godot</span>
+                            <span class="tech-tag">GdScript</span>
+                            <span class="tech-tag">HTML5</span>
+                        </div>
+                    </div>
+                </div>
+				
+				<div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image">
+                        <img src="images/smith_shop.png" alt="Smith Shop">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://9rituals.itch.io/smith-shop" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Smith Shop</h3>
+                        <p class="project-description">
+                            Jogo casual, tentando recriar algumas funcionalidades de jogos puzzle,
+							estilo 'Candy Crush'.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Godot</span>
+                            <span class="tech-tag">GdScript</span>
+                            <span class="tech-tag">HTML5</span>
+                        </div>
+                    </div>
+                </div>
+				
+				<div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image">
+                        <img src="images/bring_light.png" alt="Bring Light">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://9rituals.itch.io/bring-light" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Bring Light</h3>
+                        <p class="project-description">
+                            Jogo casual com música relaxante, mecânica de jogo básica indentica ao popular 'Flappy Bird'.
+							Objetivo era testar o sistema de luzes 2D da Godot, e seu desempenho em diferentes plataformas.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Godot</span>
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">HTML5</span>
+                        </div>
+                    </div>
+                </div>
+				
+				<div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image">
+                        <img src="images/space_missiles.png" alt="Space Missiles">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="https://9rituals.itch.io/space-missiles" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Space Missiles</h3>
+                        <p class="project-description">
+                            Jogo de 'Ação', objetivo é sobreviver o máximo de tempo que conseguir, desviando de mísseis.
+							Foi utilizado uma técnica nova para obter sprites 2D a partir de objetos 3D.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Godot</span>
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">HTML5</span>
+                        </div>
+                    </div>
+                </div>
+				
+            </div>
+        </div>
+    </section>
+	
+<!-- Other Projects Section -->
+<section id="other-projects" class="projects">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title">Outros Projetos</h2>
+            <p class="section-subtitle">Mais experimentos e pequenos projetos</p>
+        </div>
+        <div class="projects-grid">
+            
+            <div class="project-card" data-aos="fade-up">
+                <div class="project-images-mobile">
+                    <img src="images/2048_t1.png" alt="2048 - Tela 1">
+                    <img src="images/2048_t2.png" alt="2048 - Tela 2">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">2048</h3>
+                    <p class="project-description">
+                        Meu próprio projeto do jogo 2048, com grid de diferentes tamanhos.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Godot</span>
+                        <span class="tech-tag">Mobile</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="project-images-mobile">
+                    <img src="images/spin_dash_t1.png" alt="spin dash - Tela 1">
+                    <img src="images/spin_dash_t2.png" alt="spin dash - Tela 2">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Spin Dash</h3>
+                    <p class="project-description">
+                        Protótipo de aplicativo criado seguindo alguns guias online, 
+						posteriormente melhorado.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">GdSript</span>
+                        <span class="tech-tag">Godot</span>
+                    </div>
+                </div>
+            </div>
+			
+			<div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="project-images-mobile">
+                    <img src="images/stay_t1.jpg" alt="stay - Tela 1">
+                    <img src="images/stay_t2.jpg" alt="stay - Tela 2">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Stay in Sight</h3>
+                    <p class="project-description">
+                        Protótipo de simples criado para testar instanciação objetos físicos.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">GdSript</span>
+                        <span class="tech-tag">Godot</span>
+                    </div>
+                </div>
+            </div>
+			
+			<div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="project-images-mobile">
+                    <img src="images/slime_t1.png" alt="Slime - Tela 1">
+                    <img src="images/slime_t2.png" alt="Slime - Tela 2">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">Slime Slayer</h3>
+                    <p class="project-description">
+                        Jogo em desenvolvimento, com destruição de blocos, 
+						sistema de progressão e habilidades ativas.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">GdSript</span>
+                        <span class="tech-tag">Godot</span>
+						<span class="tech-tag">Mobile</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-image">
+                        <img src="images/project_illustration_4.jpg" alt="Projeto 4">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Sistema de Gerenciamento</h3>
+                        <p class="project-description">
+                            Sistema web para gerenciamento de tarefas e equipes, 
+                            com funcionalidades de colaboração e relatórios.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Contato</h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Email</h4>
+                            <p>pasini.mh@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h4>Telefone</h4>
+                            <p>+55 (47) 99658-9949</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Meu Portfólio. Todos os direitos reservados.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/MhPasini?tab=repositories" class="social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+					<a href="https://9rituals.itch.io/" class="social-link" target="_blank">
+                        <img src="images/itchio.svg" alt="Itchio" class="social-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
