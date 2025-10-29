@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colheita Programada | Meu Portfólio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav-brand">
+                <h2>Meu Portfólio - Matheus H. W. Pasini</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html#home" class="nav-link">Início</a></li>
+                <li><a href="index.html#about" class="nav-link">Sobre</a></li>
+                <li><a href="index.html#projects" class="nav-link">Projetos</a></li>
+                <li><a href="game.html" class="nav-link">Projeto Educativo</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contato</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Game Section -->
+    <section id="game" class="projects" style="padding-top: 8rem;">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Colheita Programada</h2>
+                <p class="section-subtitle">Protótipo de jogo educativo</p>
+            </div>
+
+            <!-- Brief Academic Description -->
+            <div class="game-context" style="max-width:800px; margin:0 auto 2.5rem auto; text-align:center;">
+                <p style="font-size:1.1rem; color:var(--text-secondary); line-height:1.7;">
+                    Protótipo de jogo educativo em desenvolvimento como parte do 
+                    <strong>Trabalho de Conclusão de Curso</strong> de 
+                    <strong>Sistemas de Informação - UDESC - CEPLAN</strong>.
+                </p>
+            </div>
+
+            <!-- Game Embed -->
+            <div class="game-embed" style="text-align:center; margin-bottom:3rem;">
+                <iframe frameborder="0"
+                        src="https://itch.io/embed-upload/15383061?color=85be8c"
+                        allowfullscreen = "true"
+                        width="960"
+                        height="560">
+                    <a href="https://9rituals.itch.io/colheita-programada">Play Colheita Programada on itch.io</a>
+                </iframe>
+            </div>
+
+            <!-- Game Description -->
+            <div class="game-description" style="max-width:800px; margin:0 auto; text-align:center;">
+                <p style="font-size:1.125rem; color:var(--text-secondary); line-height:1.8;">
+                    Protótipo de jogo educativo que coloca o jogador no papel de um fazendeiro
+                    tentando automatizar sua horta com a ajuda de um robô-assistente.</p>
+                <p style="font-size:1.125rem; color:var(--text-secondary); line-height:1.8; margin-top:1rem;">
+                    Por meio de programação em blocos, deve-se criar sequências de comandos
+                    para movimentar o robô, plantar, regar e colher vegetais — resolvendo
+                    objetivos simples que introduzem conceitos básicos de programação e lógica.
+                </p>
+            </div>
+
+            <!-- Back Button -->
+            <div style="text-align:center; margin-top:3rem;">
+                <a href="index.html#projects" class="btn btn-primary">
+                    <i class="fas fa-arrow-left" style="margin-right:8px;"></i> Voltar ao Portfólio
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <p>&copy; 2024 Meu Portfólio. Todos os direitos reservados.</p>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/MhPasini?tab=repositories" class="social-link" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://9rituals.itch.io/" class="social-link" target="_blank">
+                        <img src="images/itchio.svg" alt="Itchio" class="social-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
