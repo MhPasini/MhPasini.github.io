@@ -701,3 +701,40 @@ html {
     transform: translateY(0);
 }
 
+/* Game Hero Section */
+.game-hero {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #22d3ee 100%);
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.game-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.1), transparent 60%);
+    animation: pulse 8s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { opacity: 0.4; transform: scale(1); }
+    100% { opacity: 0.8; transform: scale(1.2); }
+}
+
+.game-hero-title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.25);
+}
+
+.game-hero-subtitle {
+    font-size: 1.25rem;
+    color: rgba(255,255,255,0.9);
+}
