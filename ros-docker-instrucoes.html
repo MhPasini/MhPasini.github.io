@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ROS com Docker — Guia de Instalação</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0d1117;
+    --surface: #161b22;
+    --border: #21262d;
+    --accent: #00d9ff;
+    --accent2: #ff6b35;
+    --text: #e6edf3;
+    --muted: #8b949e;
+    --green: #3fb950;
+    --code-bg: #0d1117;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Syne', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    padding: 0 0 80px;
+  }
+
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 48px 40px 40px;
+    max-width: 860px;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2));
+  }
+
+  .badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: rgba(0,217,255,0.08);
+    border: 1px solid rgba(0,217,255,0.2);
+    padding: 4px 10px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+  }
+
+  h1 span { color: var(--accent); }
+
+  header p {
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: 15px;
+    font-weight: 400;
+    max-width: 520px;
+    line-height: 1.6;
+  }
+
+  main {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+
+  .section {
+    margin-top: 56px;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--accent2);
+    background: rgba(255,107,53,0.1);
+    border: 1px solid rgba(255,107,53,0.25);
+    padding: 4px 8px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.3px;
+  }
+
+  .steps { display: flex; flex-direction: column; gap: 20px; }
+
+  .step {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+
+  .step:hover { border-color: rgba(0,217,255,0.25); }
+
+  .step-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px 20px 14px;
+  }
+
+  .step-num {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), #0090aa);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: #000;
+    margin-top: 1px;
+  }
+
+  .step-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .code-block {
+    position: relative;
+    background: var(--code-bg);
+    border-top: 1px solid var(--border);
+  }
+
+  .code-block pre {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: #79c0ff;
+    padding: 16px 60px 16px 20px;
+    overflow-x: auto;
+    line-height: 1.7;
+    white-space: pre;
+  }
+
+  .copy-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.15s;
+    letter-spacing: 0.5px;
+  }
+
+  .copy-btn:hover {
+    background: rgba(0,217,255,0.1);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .copy-btn.copied {
+    background: rgba(63,185,80,0.12);
+    border-color: var(--green);
+    color: var(--green);
+  }
+
+  .note {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 10px;
+    padding: 12px 16px;
+    background: rgba(0,217,255,0.05);
+    border-left: 3px solid var(--accent);
+    border-radius: 0 4px 4px 0;
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .note strong { color: var(--accent); font-weight: 600; }
+
+  @media (max-width: 600px) {
+    header, main { padding-left: 20px; padding-right: 20px; }
+    h1 { font-size: 26px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">Guia de Instalação</div>
+  <h1>ROS com <span>Docker</span></h1>
+  <p>Instruções passo a passo para instalar e configurar o ROS Noetic em um container Docker no Ubuntu.</p>
+</header>
+
+<main>
+
+  <!-- SEÇÃO 1: Docker -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">PARTE 01</span>
+      <h2>Instalação do Docker</h2>
+    </div>
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num">1</div>
+          <div class="step-title">Atualizar pacotes do sistema</div>
+        </div>
+        <div class="code-block">
+          <pre>sudo apt update</pre>
+          <button class="copy-btn" onclick="copyCode(this)">copiar</button>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num">2</div>
+          <div class="step-title">Instalar curl e dependências de transporte</div>
+        </div>
+        <div class="code-block">
+          <pre>sudo apt install apt-transport-https curl</pre>
+          <button class="copy-btn" onclick="copyCode(this)">copiar</button>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num">3</div>
+          <div class="step-title">Instalar o Docker</div>
+        </div>
+        <div class="code-block">
+          <pre>sudo apt install docker.io</pre>
+          <button class="copy-btn" onclick="copyCode(this)">copiar</button>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num">4</div>
+          <div class="step-title">Iniciar e habilitar o serviço do Docker na inicialização</div>
+        </div>
+        <div class="code-block">
+          <pre>sudo systemctl enable docker
+sudo systemctl start docker</pre>
+          <button class="copy-btn" onclick="copyCode(this)">copiar</button>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num">5</div>
+          <div class="step-title">Verificar a instalação</div>
+        </div>
+        <div class="code-block">
+          <pre>docker --version</pre>
+          <button class="copy-btn" onclick="copyCode(this)">copiar</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SEÇÃO 2: ROS -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">PARTE 02</span>
+      <h2>Instalação e Configuração do ROS Noetic no Docker</h2>
+    </div>
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num">1</div>
+          <div class="step-title">Permitir que o Docker abra janelas gráficas no host (X11)</div>
+        </div>
+        <div class="code-block">
+          <pre>xhost +local:docker</pre>
+          <button class="copy-btn" onclick="copyCode(this)">copiar</button>
+        </div>
+        <div class="note">
+          <strong>Nota:</strong>&nbsp; Execute este comando antes de iniciar o container sempre que reiniciar a sessão gráfica.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num">2</div>
+          <div class="step-title">Baixar a imagem e criar o container ROS Noetic Desktop Full</div>
+        </div>
+        <div class="code-block">
+          <pre>sudo docker run -it \
+  --name ros_container \
+  --net=host \
+  --privileged \
+  -e DISPLAY=$DISPLAY \
+  -e QT_X11_NO_MITSHM=1 \
+  -v /tmp/.X11-unix:/tmp/.X11-unix:rw \
+  osrf/ros:noetic-desktop-full bash</pre>
+          <button class="copy-btn" onclick="copyCode(this)">copiar</button>
+        </div>
+        <div class="note">
+          <strong>Atenção:</strong>&nbsp; Este comando baixa a imagem completa do ROS Noetic (~3 GB). Aguarde o download finalizar antes de prosseguir.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SEÇÃO 3: Testes -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">PARTE 03</span>
+      <h2>Testes do ROS no Container Docker</h2>
+    </div>
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num">1</div>
+          <div class="step-title">Acessar o container em novos terminais</div>
+        </div>
+        <div class="code-block">
+          <pre>sudo docker exec -it ros_container bash</pre>
+          <button class="copy-btn" onclick="copyCode(this)">copiar</button>
+        </div>
+        <div class="note">
+          <strong>Dica:</strong>&nbsp; Execute este comando em cada novo terminal que precisar usar com o ROS.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num">2</div>
+          <div class="step-title">Em cada terminal novo, definir o source do ROS</div>
+        </div>
+        <div class="code-block">
+          <pre>source /opt/ros/noetic/setup.bash</pre>
+          <button class="copy-btn" onclick="copyCode(this)">copiar</button>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num">3</div>
+          <div class="step-title">Em um terminal, iniciar o roscore</div>
+        </div>
+        <div class="code-block">
+          <pre>roscore</pre>
+          <button class="copy-btn" onclick="copyCode(this)">copiar</button>
+        </div>
+        <div class="note">
+          <strong>Importante:</strong>&nbsp; Mantenha o roscore em execução. Os comandos a seguir devem ser executados em terminais separados.
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-header">
+          <div class="step-num">4</div>
+          <div class="step-title">Em terminais diferentes, testar as funções do ROS</div>
+        </div>
+        <div class="code-block">
+          <pre>rostopic list</pre>
+          <button class="copy-btn" onclick="copyCode(this)">copiar</button>
+        </div>
+        <div class="code-block" style="border-top:none; margin-top:2px;">
+          <pre>rosrun turtlesim turtlesim_node</pre>
+          <button class="copy-btn" onclick="copyCode(this)">copiar</button>
+        </div>
+        <div class="code-block" style="border-top:none; margin-top:2px;">
+          <pre>rosrun teleop_twist_keyboard teleop_twist_keyboard.py</pre>
+          <button class="copy-btn" onclick="copyCode(this)">copiar</button>
+        </div>
+        <div class="note">
+          <strong>Dica:</strong>&nbsp; Execute cada um dos comandos acima em um terminal separado (com o source já configurado). O turtlesim abre uma janela gráfica e o teleop permite controlar a tartaruga pelo teclado.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<script>
+  function copyCode(btn) {
+    const pre = btn.previousElementSibling;
+    navigator.clipboard.writeText(pre.textContent.trim()).then(() => {
+      btn.textContent = '✓ copiado';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.textContent = 'copiar';
+        btn.classList.remove('copied');
+      }, 1800);
+    });
+  }
+</script>
+</body>
+</html>

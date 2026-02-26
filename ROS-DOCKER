@@ -1,0 +1,49 @@
+### Instalação e configuração do ROS com Docker ###
+
+## Intalação do Docker ##
+
+1º- Atualizar pacotes do sistema:
+	sudo apt update
+
+2º- Instalar curl:
+	sudo apt install apt-transport-https curl
+
+3º- Instalar docker:
+	sudo apt install docker.io
+
+4º- Iniciar serviços do Docker:
+	sudo systemctl enable docker
+	sudo systemctl start docker
+
+5º- Verificar instalação:
+	docker --version
+
+
+
+## Instalação/Configuração do ROS Noetic no Docker ##
+
+1º- Permitir docker abrir janelas no host:
+	xhost +local:docker
+
+2º- Baixar e instalar os pacotes ROS no Docker:
+	sudo docker run -it --name ros_container --net=host --privileged -e DISPLAY=$DISPLAY -e QT_X11_NO_MITSHM=1 -v /tmp/.X11-unix:/tmp/.X11-unix:rw osrf/ros:noetic-desktop-full bash
+
+
+
+## Testes do ROS no container Docker ##
+
+1º- Para acessar o docker em novos terminais:
+	sudo docker exec -it ros_container bash
+
+2º- Em novos terminais, definir source do ROS:
+	source /opt/ros/noetic/setup.bash
+
+3º- Em um terminal executar o roscore:
+	roscore
+
+4º- Em um terminais diferentes, testar as funções ros:
+	rostopic list
+	rosrun turtlesim turtlesim_node
+	rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+	
+	
